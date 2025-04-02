@@ -34,24 +34,25 @@
     }
   </style>
   <script>
-    document.querySelector("button").addEventListener("click", async () => {
-      const input = document.querySelector("textarea").value;
-      const output = document.querySelector("#response");
-      output.innerHTML = "Marvin is thinking...";
+   document.querySelector("button").addEventListener("click", async () => {
+  const input = document.querySelector("textarea").value;
+  const output = document.querySelector("#response");
+  output.innerHTML = "Marvin is thinking...";
   
-      try {
-        const res = await fetch("/.netlify/functions/chat", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ message: input })
-        });
-        const data = await res.json();
-        output.innerHTML = "🗣️ " + data.reply;
-      } catch (err) {
-        output.innerHTML = "😓 Marvin is having a tech hiccup.";
-        console.error(err);
-      }
+  try {
+    const res = await fetch("/.netlify/functions/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: input })
     });
+    const data = await res.json();
+    output.innerHTML = "🧠 " + data.reply;
+  } catch (err) {
+    output.innerHTML = "🚨 Marvin is having a tech hiccup.";
+    console.error(err);
+  }
+});
+
   </script>
   
 </head>
@@ -64,5 +65,24 @@
 <div class="chat" id="chatBox">🗨️ Marvin is waiting for your question...</div>
 
 <script>
-  async function talkToMarvin() {
-    const userInput
+    async function talkToMarvin() {
+      const input = document.querySelector("textarea").value;
+      const output = document.querySelector("#chatBox");
+      output.innerHTML = "Marvin is thinking...";
+  
+      try {
+        const res = await fetch("/.netlify/functions/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: input }),
+        });
+  
+        const data = await res.json();
+        output.innerHTML = "🧠 " + data.reply;
+      } catch (err) {
+        output.innerHTML = "🚨 Marvin is having a tech hiccup.";
+        console.error(err);
+      }
+    }
+  </script>
+  
