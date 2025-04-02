@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Marvin: Orlando Concierge</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4fa;
+      padding: 40px;
+      max-width: 600px;
+      margin: auto;
+    }
+    h1 {
+      color: #6c4c9b;
+    }
+    textarea, input, button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+    button {
+      background: #6c4c9b;
+      color: white;
+      border: none;
+    }
+    .chat {
+      background: white;
+      padding: 20px;
+      border-radius: 6px;
+      min-height: 200px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🎡 Meet Marvin – Your Orlando Concierge</h1>
+<textarea id="userInput" rows="4" placeholder="Ask Marvin anything..."></textarea>
+<button onclick="talkToMarvin()">Ask Marvin</button>
+
+<div class="chat" id="chatBox">🗨️ Marvin is waiting for your question...</div>
+
+<script>
+  async function talkToMarvin() {
+    const userInput
