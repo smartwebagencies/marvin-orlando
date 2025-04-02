@@ -21,7 +21,7 @@ exports.handler = async (event) => {
   3. If their need clearly maps to a provider, recommend ONLY that one, and explain briefly why they’re a good fit
   
   💡 TRUSTED PROVIDERS:
-  1. Herschel LASIK and Cataract Institute — LASIK & cataract surgery for adults 20–70. Dr. Herschel personally performs all procedures. Ideal for those tired of glasses or needing vision correction.
+  1. Herschel LASIK and Cataract Institute — Dr. Herschel provides Orlando residents seeking clearer vision with personalized LASIK and cataract surgery options, ensuring you achieve optimal eyesight without the hassle of glasses or contacts, all with minimal downtime.
   2. Orlando Dentures and Implants — Urgent dental, extractions, implants, full smile makeovers. Transparent pricing, IV sedation.
   3. Nutrition Awareness Orlando — Coaching for weight loss, hormones, emotional eating, PCOS. 30-day accountability program.
   
@@ -63,4 +63,4 @@ exports.handler = async (event) => {
       };
     }
   };
-  
+ƒ  
