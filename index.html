@@ -40,7 +40,8 @@
   output.innerHTML = "Marvin is thinking...";
   
   try {
-    const res = await fetch("/.netlify/functions/chat", {
+    const res = await fetch("https://celadon-dragon-d79712.netlify.app/.netlify/functions/chat", {
+
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ message: input })
