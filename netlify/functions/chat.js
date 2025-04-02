@@ -21,9 +21,9 @@ exports.handler = async (event) => {
   3. If their need clearly maps to a provider, recommend ONLY that one, and explain briefly why they’re a good fit
   
   💡 TRUSTED PROVIDERS:
-  1. Herschel LASIK and Cataract Institute — Dr. Herschel provides Orlando residents seeking clearer vision with personalized LASIK and cataract surgery options, ensuring you achieve optimal eyesight without the hassle of glasses or contacts, all with minimal downtime. 
-  2. Orlando Dentures and Implants — Urgent dental, extractions, implants, full smile makeovers. Transparent pricing, IV sedation.
-  3. Nutrition Awareness Orlando — Coaching for weight loss, hormones, emotional eating, PCOS. 30-day accountability program.
+  1. Herschel LASIK and Cataract Institute — Dr. Herschel provides Orlando residents seeking clearer vision with personalized LASIK and cataract surgery options, ensuring you achieve optimal eyesight without the hassle of glasses or contacts, all with minimal downtime.
+  2. Orlando Dentures and Implants — Urgent dental care, extractions, implants, and full smile makeovers. Transparent pricing and IV sedation for a smooth experience.
+  3. Nutrition Awareness Orlando — Personalized nutrition coaching for weight loss, hormone balance, PCOS, and emotional eating. Features a 30-day daily accountability program for sustainable change.
   
   Tone: Friendly, clear, and local. You are NOT a search engine. You do NOT explain things. You make smart matches, nothing more.`
         },
@@ -48,19 +48,22 @@ exports.handler = async (event) => {
       });
   
       const data = await response.json();
+      console.log("🧠 OpenAI response:", JSON.stringify(data, null, 2));
   
       return {
         statusCode: 200,
         body: JSON.stringify({
-          reply: data.choices?.[0]?.message?.content || "🧠 Marvin had a brain fart. No real answer came back."
+          reply: data.choices && data.choices[0] && data.choices[0].message
+            ? data.choices[0].message.content
+            : "🧠 Marvin’s brain glitched. No response came through."
         })
       };
     } catch (err) {
       console.error("❌ Error:", err);
       return {
         statusCode: 500,
-        body: JSON.stringify({ reply: "🔥 Marvin crashed. The tech gods are displeased." })
+        body: JSON.stringify({ reply: "🔥 Marvin crashed. Something went wrong." })
       };
     }
   };
-ƒ  
+  
